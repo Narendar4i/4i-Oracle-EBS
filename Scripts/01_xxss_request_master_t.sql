@@ -34,4 +34,3 @@ create table xxss_request_master_t
 alter table xxss_request_master_t add constraint xxss_request_id_pk primary key (request_id);
 
 create sequence xxss_request_id_s start with 100 increment by 10 nocache nocycle;
-
