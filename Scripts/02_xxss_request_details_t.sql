@@ -1,9 +1,9 @@
 
 /***
 -- ====================================================================================
--- NAME...:  01_xxss_request_master_t.sql
+-- NAME...:  02_xxss_request_details_t.sql
 -- 
--- DESC...: To Store the Self Service Request Master informations
+-- DESC...: To Store the Self Service Request Detail informations
 -- 
 -- HISTORY: 
 -- 
@@ -13,11 +13,13 @@
 -- ====================================================================================
 ***/
 
-create table xxss_request_master
+create table xxss_request_details
 (
-    request_id          number,
-    request_type        varchar2(30)   not null,
-    request_description varchar2(240),
+    req_det_id          number,
+    req_id              number,  
+    rd_seq_num          number,
+    rd_type             varchar2(240),
+    rd_field            varchar2(240),
     attribute_category  varchar2(240),
     attribute1          varchar2(240),
     attribute2          varchar2(240),
@@ -31,6 +33,4 @@ create table xxss_request_master
     last_update_login   number
 );
 
-alter table xxss_request_master add constraint xxss_request_id_pk primary key (request_id);
-
-create sequence xxss_request_id_s start with 100 increment by 10 nocache nocycle;
+alter table xxss_request_details add constraint xxss_request_details_fk foreign key (req_id) references xxss_request_master (request_id);
