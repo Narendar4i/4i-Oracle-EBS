@@ -11,7 +11,7 @@
 -- s1.0     Narendar-4iApps  Initial File                                 03-Jul-2025
 -- ====================================================================================
 ***/
-create table xxapex.xxss_requests
+create table xxss_requests
 (
     request_id          number         not null,
     request_num         varchar2(30)   not null,
@@ -40,8 +40,8 @@ create table xxapex.xxss_requests
     last_update_login   number
 );
 
-alter table xxapex.xxss_requests add constraint xxss_requests_pk primary key (request_id);
+alter table xxss_requests add constraint xxss_requests_pk primary key (request_id);
 
-alter table xxapex.xxss_requests add constraint xxss_requests_fk foreign key (req_id) references xxss_request_master (req_id);
+alter table xxss_requests add constraint xxss_requests_fk foreign key (req_id) references xxss_request_master (req_id);
 
-grant all on xxapex.xxss_requests to xxapex;
+grant all on xxss_requests to apps;

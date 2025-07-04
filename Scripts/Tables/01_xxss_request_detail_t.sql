@@ -13,7 +13,7 @@
 -- ====================================================================================
 ***/
 
-create table xxapex.xxss_request_master
+create table xxss_request_master
 (
     req_id              number,
     req_name            varchar2(30)   not null,
@@ -36,7 +36,7 @@ create table xxapex.xxss_request_master
     last_update_login   number
 );
 
-create table xxapex.xxss_request_details
+create table xxss_request_details
 (
     rd_id               number,
     req_id              number,  
@@ -58,14 +58,14 @@ create table xxapex.xxss_request_details
     last_update_login   number
 );
 
-alter table xxapex.xxss_request_master add constraint xxss_request_master_pk primary key (req_id);
+alter table xxss_request_master  add constraint xxss_request_master_pk  primary key (req_id);
 
-alter table xxapex.xxss_request_details add constraint xxss_request_details_pk primary key (rd_id);
+alter table xxss_request_details add constraint xxss_request_details_pk primary key (rd_id);
 
-alter table xxapex.xxss_request_details add constraint xxss_request_details_fk foreign key (req_id) references xxapex.xxss_request_master (req_id);
+alter table xxss_request_details add constraint xxss_request_details_fk foreign key (req_id) references xxss_request_master (req_id);
 
 create sequence xxss_pk_id_s start with 1 increment by 1 nocache nocycle;
 
-grant all on xxapex.xxss_request_master to apps;
+grant all on xxss_request_master to apps;
 
-grant all on xxapex.xxss_request_details to apps;
+grant all on xxss_request_details to apps;
