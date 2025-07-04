@@ -43,3 +43,5 @@ create table xxapex.xxss_requests
 alter table xxapex.xxss_requests add constraint xxss_requests_pk primary key (request_id);
 
 alter table xxapex.xxss_requests add constraint xxss_requests_fk foreign key (req_id) references xxss_request_master (req_id);
+
+grant all on xxapex.xxss_requests to xxapex;

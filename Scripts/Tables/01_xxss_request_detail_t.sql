@@ -65,3 +65,7 @@ alter table xxapex.xxss_request_details add constraint xxss_request_details_pk p
 alter table xxapex.xxss_request_details add constraint xxss_request_details_fk foreign key (req_id) references xxapex.xxss_request_master (req_id);
 
 create sequence xxss_pk_id_s start with 1 increment by 1 nocache nocycle;
+
+grant all on xxapex.xxss_request_master to apps;
+
+grant all on xxapex.xxss_request_details to apps;
