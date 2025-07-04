@@ -1,6 +1,6 @@
 /***
 -- ====================================================================================
--- NAME...:  03_xxss_requests_t.sql
+-- NAME...:  02_xxss_requests_t.sql
 -- 
 -- DESC...:  To Store the Self Service Requested Information by the User
 -- 
@@ -17,8 +17,9 @@ create table xxss_requests
     request_num         varchar2(30)   not null,
     request_date        date           not null,
     req_id              number         not null,
-    req_user_id         number         not null,
-    req_person_id       number         not null,
+    user_id             number         not null,
+    person_id           number         not null,
+    org_id              number         not null,
     request_info        clob           not null,
     request_description varchar2(240),
     request_status      varchar2(30),
@@ -41,7 +42,4 @@ create table xxss_requests
 
 alter table xxss_requests add constraint xxss_requests_pk primary key (request_id);
 
-alter table xxss_requests add constraint xxss_requests_fk foreign key (req_id) references xxss_request_master (request_id);
--- Note: Ensure that xxss_request_master table is created before this table.
-
-create sequence xxss_requests_s start with 10 increment by 10 nocache nocycle;
+alter table xxss_requests add constraint xxss_requests_fk foreign key (req_id) references xxss_request_master (req_id);
