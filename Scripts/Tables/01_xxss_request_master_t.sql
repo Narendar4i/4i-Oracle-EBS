@@ -1,7 +1,7 @@
 
 /***
 -- ====================================================================================
--- NAME...:  01_xxss_request_detail_t.sql
+-- NAME...:  01_xxss_request_master_t.sql
 -- 
 -- DESC...: To Store the Self Service Request Master Detail informations
 -- 
