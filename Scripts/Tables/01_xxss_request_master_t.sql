@@ -19,7 +19,7 @@ create table xxss_request_master
     req_name            varchar2(30)   not null,
     req_description     varchar2(240),
     req_short_name      varchar2(3),
-    auto_num_yn         varchar2(1)   not null,
+    auto_num_yn         varchar2(1)    not null,
     next_number         number,
     wf_item_type        varchar2(30),
     wf_process_name     varchar2(240),
@@ -65,6 +65,8 @@ alter table xxss_request_details add constraint xxss_request_details_pk primary 
 alter table xxss_request_details add constraint xxss_request_details_fk foreign key (req_id) references xxss_request_master (req_id);
 
 create sequence xxss_pk_id_s start with 1 increment by 1 nocache nocycle;
+
+create sequence xxss_pk1_id_s start with 1 increment by 1 nocache nocycle;
 
 grant all on xxss_request_master to apps;
 
