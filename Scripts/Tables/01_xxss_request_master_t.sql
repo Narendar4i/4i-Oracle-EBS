@@ -45,6 +45,7 @@ create table xxss_request_details
     rd_item             varchar2(240),
     rd_lookup_type      varchar2(240),
     rd_mandatory_yn     varchar2(1),
+    rd_display_yn       varchar2(1),
     attribute_category  varchar2(240),
     attribute1          varchar2(240),
     attribute2          varchar2(240),

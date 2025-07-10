@@ -30,9 +30,9 @@ BEGIN
         :new.last_updated_by  := 0;
         :new.last_update_date := localtimestamp;
         
-        select max(req_id) 
-        into :new.req_id
-        from xxss_request_master;
+        -- select max(req_id) 
+        -- into :new.req_id
+        -- from xxss_request_master;
         
     END IF;
 
