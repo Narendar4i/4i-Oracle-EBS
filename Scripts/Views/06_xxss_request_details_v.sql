@@ -16,7 +16,7 @@ create or replace view xxss_request_details_v (
     rd_id,
     req_id,
     rd_seq_num,
-    rd_datetype,
+    rd_datatype,
     rd_item,
     rd_lookup_type,
     rd_mandatory_yn,
