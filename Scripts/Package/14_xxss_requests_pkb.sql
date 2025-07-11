@@ -36,11 +36,6 @@ as
       p_err_msg      := 'success';
       m_created_date := sysdate;
 
-      m_crnt_param   := 'request_id';
-      if p_rec.request_id is null then
-         raise reqd_value_missing;
-      end if;
-
       m_crnt_param   := 'request_num';
       if p_rec.request_num is null then
          raise reqd_value_missing;
@@ -73,36 +68,6 @@ as
 
       m_crnt_param   := 'request_info';
       if p_rec.request_info is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'request_description';
-      if p_rec.request_description is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'request_status';
-      if p_rec.request_status is null then   
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'wf_item_type';
-      if p_rec.wf_item_type is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'wf_item_key';
-      if p_rec.wf_item_key is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'wf_process_name';
-      if p_rec.wf_process_name is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'flow_with';
-      if p_rec.flow_with is null then  
          raise reqd_value_missing;
       end if;
 
@@ -167,11 +132,6 @@ as
       p_err_msg      := 'success';
       m_created_date := sysdate;
 
-      m_crnt_param   := 'request_id';
-      if p_rec.request_id is null then
-         raise reqd_value_missing;
-      end if;
-
       m_crnt_param   := 'request_num';
       if p_rec.request_num is null then
          raise reqd_value_missing;
@@ -204,36 +164,6 @@ as
 
       m_crnt_param   := 'request_info';
       if p_rec.request_info is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'request_description';
-      if p_rec.request_description is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'request_status';
-      if p_rec.request_status is null then   
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'wf_item_type';
-      if p_rec.wf_item_type is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'wf_item_key';
-      if p_rec.wf_item_key is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'wf_process_name';
-      if p_rec.wf_process_name is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'flow_with';
-      if p_rec.flow_with is null then  
          raise reqd_value_missing;
       end if;
 

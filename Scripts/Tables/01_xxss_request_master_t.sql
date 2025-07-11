@@ -20,7 +20,7 @@ create table xxss_request_master
     req_description     varchar2(240),
     req_short_name      varchar2(3),
     auto_num_yn         varchar2(1)    not null,
-    next_number         number,
+    next_number         number         not null,
     wf_item_type        varchar2(30),
     wf_process_name     varchar2(240),
     attribute_category  varchar2(240),
@@ -40,9 +40,9 @@ create table xxss_request_details
 (
     rd_id               number,
     req_id              number,  
-    rd_seq_num          number,
-    rd_datatype         varchar2(240),
-    rd_item             varchar2(240),
+    rd_seq_num          number         not null,
+    rd_item             varchar2(240)  not null,
+    rd_datatype         varchar2(240)  not null,
     rd_lookup_type      varchar2(240),
     rd_mandatory_yn     varchar2(1),
     rd_display_yn       varchar2(1),
@@ -76,6 +76,3 @@ grant all on xxss_request_details to apps;
 grant all on xxss_req_id_s to apps;
 
 grant all on xxss_rd_id_s to apps;
-
-
-select * from xxss_request_details;

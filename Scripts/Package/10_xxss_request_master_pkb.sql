@@ -45,14 +45,14 @@ as
       if p_rec.req_name is null then
          raise reqd_value_missing;
       end if;
-      
-      m_crnt_param   := 'req_description';
-      if p_rec.req_description is null then
-         raise reqd_value_missing;
-      end if;
 
       m_crnt_param   := 'auto_num_yn';
       if p_rec.auto_num_yn is null then
+         raise reqd_value_missing;
+      end if;
+
+      m_crnt_param   := 'next_number';
+      if p_rec.next_number is null then
          raise reqd_value_missing;
       end if;
 
@@ -126,14 +126,14 @@ as
       if p_rec.req_name is null then
          raise reqd_value_missing;
       end if;
-      
-      m_crnt_param   := 'req_description';
-      if p_rec.req_description is null then
-         raise reqd_value_missing;
-      end if;
 
       m_crnt_param   := 'auto_num_yn';
       if p_rec.auto_num_yn is null then
+         raise reqd_value_missing;
+      end if;
+
+      m_crnt_param   := 'next_number';
+      if p_rec.next_number is null then
          raise reqd_value_missing;
       end if;
 

@@ -35,16 +35,6 @@ as
       p_err_code     := '0';
       p_err_msg      := 'success';
       m_created_date := sysdate;
-
-      m_crnt_param   := 'rd_id';
-      if p_rec.rd_id is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'req_id';
-      if p_rec.req_id is null then
-         raise reqd_value_missing;
-      end if;
       
       m_crnt_param   := 'rd_seq_num';
       if p_rec.rd_seq_num is null then
@@ -58,21 +48,6 @@ as
 
       m_crnt_param   := 'rd_item';
       if p_rec.rd_item is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'rd_lookup_type';
-      if p_rec.rd_lookup_type is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'rd_mandatory_yn';
-      if p_rec.rd_mandatory_yn is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'rd_display_yn';
-      if p_rec.rd_display_yn is null then
          raise reqd_value_missing;
       end if;
 
@@ -136,16 +111,6 @@ as
       p_err_code     := '0';
       p_err_msg      := 'success';
       m_created_date := sysdate;
-
-      m_crnt_param   := 'rd_id';
-      if p_rec.rd_id is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'req_id';
-      if p_rec.req_id is null then
-         raise reqd_value_missing;
-      end if;
       
       m_crnt_param   := 'rd_seq_num';
       if p_rec.rd_seq_num is null then
@@ -159,21 +124,6 @@ as
 
       m_crnt_param   := 'rd_item';
       if p_rec.rd_item is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'rd_lookup_type';
-      if p_rec.rd_lookup_type is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'rd_mandatory_yn';
-      if p_rec.rd_mandatory_yn is null then
-         raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'rd_display_yn';
-      if p_rec.rd_display_yn is null then
          raise reqd_value_missing;
       end if;
 
