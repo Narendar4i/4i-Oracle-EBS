@@ -2,7 +2,7 @@
 -- ====================================================================================
 -- NAME...:  04_xxss_request_master_v.sql
 -- 
--- DESC...:  To View the Self Service Request Master and Details Information
+-- DESC...:  To View the Self Service Request Master Information
 -- 
 -- HISTORY: 
 -- 
@@ -27,22 +27,14 @@ create or replace view xxss_request_master_v (
     attribute3,
     attribute4,
     attribute5,
-    rd_id,
-    rd_seq_num,
-    rd_item,
-    rd_datatype,
-    rd_lookup_type,
-    rd_mandatory_yn,
-    rd_display_yn,
-    rd_attribute_category,
-    rd_attribute1,
-    rd_attribute2,
-    rd_attribute3,
-    rd_attribute4,
-    rd_attribute5
+    created_by,
+    creation_date,
+    last_updated_by,
+    last_update_date,
+    last_update_login
 ) as
 select 
-      xrm.row_id,
+      xrm.rowid,
       xrm.req_id,
       xrm.req_name,
       xrm.req_description,
@@ -56,20 +48,10 @@ select
       xrm.attribute2,
       xrm.attribute3,
       xrm.attribute4,
-      xrm.attribute5,   
-      xrd.rd_id,
-      xrd.rd_seq_num,
-      xrd.rd_item,
-      xrd.rd_datatype,     
-      xrd.rd_lookup_type,
-      xrd.rd_mandatory_yn,
-      xrd.rd_display_yn,
-      xrd.attribute_category,
-      xrd.attribute1,
-      xrd.attribute2,
-      xrd.attribute3,
-      xrd.attribute4,
-      xrd.attribute5
-from  xxss_request_master  xrm,
-      xxss_request_details xrd
-where xrm.req_id = xrd.req_id
+      xrm.attribute5,
+      xrm.created_by,
+      xrm.creation_date,
+      xrm.last_updated_by,
+      xrm.last_update_date,
+      xrm.last_update_login
+from  xxss_request_master xrm;

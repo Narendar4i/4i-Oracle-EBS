@@ -19,6 +19,12 @@ create synonym xxss_requests for xxapex.xxss_requests;
 
 create synonym xxss_requests_all for xxapex.xxss_requests;
 
-create synonym xxss_pk_id_s for xxapex.xxss_pk_id_s;
+create synonym xxss_req_approval_hist for xxapex.xxss_req_approval_hist;
 
-create synonym xxss_pk1_id_s for xxapex.xxss_pk1_id_s;
+create synonym xxss_req_id_s for xxapex.xxss_req_id_s;
+
+create synonym xxss_rd_id_s for xxapex.xxss_rd_id_s;
+
+create synonym xxss_request_id_s for xxapex.xxss_request_id_s;
+
+create synonym xxss_approver_hist_id_s for xxapex.xxss_approver_hist_id_s;

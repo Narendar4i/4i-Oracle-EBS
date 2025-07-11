@@ -44,4 +44,8 @@ alter table xxss_requests add constraint xxss_requests_pk primary key (request_i
 
 alter table xxss_requests add constraint xxss_requests_fk foreign key (req_id) references xxss_request_master (req_id);
 
+create sequence xxss_request_id_s start with 1 increment by 1 nocache nocycle;
+
 grant all on xxss_requests to apps;
+
+grant all on xxss_request_id_s to apps;
