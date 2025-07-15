@@ -80,7 +80,7 @@ as
 
       insert into xxss_request_master values p_rec;
 
-      -- commit;
+      commit;
 
       open c_res_rowid;
       fetch c_res_rowid into p_row_id;

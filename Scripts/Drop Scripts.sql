@@ -15,6 +15,13 @@ drop synonym xxss_request_master;
 drop synonym xxss_request_details;
 drop synonym xxss_requests;
 drop synonym xxss_requests_all;
--- drop synonym xxss_req_approval_hist;
-drop synonym xxss_pk1_id_s;
-drop synonym xxss_pk_id_s;
+drop synonym xxss_req_approval_hist;
+
+delete from xxss_request_master;
+delete from xxss_request_details;
+
+drop sequence xxss_req_id_s;
+drop sequence xxss_approver_hist_id_s;
+drop sequence xxss_request_id_s;
+drop sequence xxss_rd_id_s;
+
