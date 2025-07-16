@@ -11,7 +11,7 @@
 -- s1.0     Narendar-4iApps  Initial File                                 16-Jul-2025
 -- ====================================================================================
 ***/
-create or replace view xxss_request_info_v 
+create or replace view xxss_request_info_v
 (
     row_id,
     req_id,
@@ -84,4 +84,4 @@ select
       xrm.last_update_login
 from  xxss_request_master xrm,
       xxss_request_details xrd
-where xrm.req_id = xrd.req_id
+where xrm.req_id = xrd.req_id;

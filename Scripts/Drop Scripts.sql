@@ -1,7 +1,7 @@
-drop table xxss_request_master;
 drop table xxss_request_details;
 drop table xxss_requests;
 drop table xxss_req_approval_hist;
+drop table xxss_request_master;
 
 drop sequence xxss_request_id_s;
 drop sequence xxss_rd_id_s;
