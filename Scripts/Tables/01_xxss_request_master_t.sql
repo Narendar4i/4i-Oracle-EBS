@@ -19,7 +19,7 @@ create table xxss_request_master
     req_description     varchar2(240),
     req_short_name      varchar2(3),
     auto_num_yn         varchar2(1)    not null,
-    next_number         number         not null,
+    next_number         number,
     wf_item_type        varchar2(30),
     wf_process_name     varchar2(240),
     attribute_category  varchar2(240),
