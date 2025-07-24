@@ -31,7 +31,8 @@ create or replace view xxss_request_details_v (
     creation_date,
     last_updated_by,
     last_update_date,
-    last_update_login
+    last_update_login,
+    constraint xxss_request_details_v_pk primary key (rd_id) rely disable novalidate
 ) as
 select rowid,
        rd_id,
