@@ -9,7 +9,6 @@ drop sequence xxss_approver_hist_id_s;
 drop sequence xxss_req_id_s;
 
 select * from all_objects where object_name like 'XXSS%' and object_type = 'SYNONYM';
-/
 
 drop synonym xxss_request_master;
 drop synonym xxss_request_details;
