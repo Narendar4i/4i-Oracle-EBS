@@ -46,6 +46,10 @@ alter table xxss_requests add constraint xxss_requests_fk foreign key (req_id) r
 
 create sequence xxss_request_id_s start with 1 increment by 1 nocache nocycle;
 
+create sequence xxss_wf_itemkey_s start with 1 increment by 1 nocache nocycle;
+
 grant all on xxss_requests to apps;
 
 grant all on xxss_request_id_s to apps;
+
+grant all on xxss_wf_itemkey_s to apps;

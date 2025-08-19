@@ -27,4 +27,6 @@ create synonym xxss_rd_id_s for xxapex.xxss_rd_id_s;
 
 create synonym xxss_request_id_s for xxapex.xxss_request_id_s;
 
+create synonym xxss_wf_itemkey_s for xxapex.xxss_wf_itemkey_s;
+
 create synonym xxss_approver_hist_id_s for xxapex.xxss_approver_hist_id_s;
