@@ -25,7 +25,7 @@ as
     
     begin
       
-     xx_debug('xxss_workflow_pkg.initiate_workflow'|| p_request_id);
+     xx_debug('xxss_workflow_pkg.initiate_workflow : '|| p_request_id);
      
      lc_itemtype     := 'XXSSR';
      lc_itemkey      := to_char(p_request_id)||'-'||xxss_wf_itemkey_s.nextval;
@@ -36,7 +36,9 @@ as
      wf_engine.setitemowner ( lc_itemtype , lc_itemkey , lc_item_owner   );
      wf_engine.startprocess ( lc_itemtype , lc_itemkey);
      
-     xx_debug('Workflow initiated successfully for request ID: ' || p_request_id);
+     xx_debug('Workflow initiated successfully for itemkey : ' || lc_itemkey);
+
+     commit;
 
     exception
     when others then
@@ -49,8 +51,9 @@ as
                              p_funcmode    in  varchar2 ,
                              x_resultout   out varchar2)
     as
-        lc_requestor   varchar2(30);
-        ln_debug_info  number;
+        lc_requestor    varchar2(30);
+        lc_region_path  varchar2(30);
+        ln_debug_info   number;
 
     cursor cur_requestor 
     is
@@ -63,6 +66,9 @@ as
         
         ln_debug_info := 1;
 
+        lc_region_path := 'JSP:/OA_HTML/OA.jsp?page=/xxss/oracle/apps/xxapex/selfservice/webui/SelfServiceRN' || 
+                          '&'  || 'WFRequestId=' ||  substr(p_itemkey , 1 , instr(p_itemkey , '-')-1);
+
         open  cur_requestor;
         fetch cur_requestor into lc_requestor;
         if    cur_requestor%notfound then
@@ -71,7 +77,10 @@ as
         close cur_requestor;
 
         xx_debug('xxss_workflow_pkg.set_attributes' || p_itemtype || ', item key: ' || p_itemkey);
+        xx_debug('Region Path ' || lc_region_path);
+
         wf_engine.setitemattrtext(p_itemtype, p_itemkey, 'REQUESTOR', lc_requestor);
+        wf_engine.setitemattrdocument(p_itemtype ,p_itemkey,'REQUEST_REGION',lc_region_path);   
 
     exception 
     when others then    

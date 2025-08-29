@@ -195,8 +195,6 @@ BEGIN ITEM_TYPE "XXSSR"
     TYPE = "DOCUMENT"
     FORMAT = "_top"
     VALUE_TYPE = "CONSTANT"
-    DEFAULT = "JSP:/OA_HTML/OA.jsp?page=/xxss/oracle/apps/xxapex/selfservice/w\
-ebui/SelfServiceRN"
   END ITEM_ATTRIBUTE
 END ITEM_TYPE
 

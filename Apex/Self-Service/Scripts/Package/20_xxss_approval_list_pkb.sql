@@ -1,21 +1,21 @@
-create or replace package body xxss_request_master_pkg
+create or replace package body xxss_approval_list_pkg
 as
 /***
 -- ====================================================================================
--- NAME...:  xxss_request_master_pkb.sql
--- 
--- DESC...:  Package Body, to insert, update, delete and select records from 
---           xss_request_master table.
--- 
--- HISTORY: 
--- 
+-- NAME...:  xxss_approval_list_pkb.sql
+--
+-- DESC...:  Package Body, to insert, update, delete and select records from
+--           xxss_approval_list table.
+--
+-- HISTORY:
+--
 -- Version  WHO              WHAT                                         WHEN
 -- -------  ---------------  -------------------------------------------- ------------
 -- s1.0     Narendar-4iApps  Initial File                                 10-Jul-2025
 -- ====================================================================================
 ***/
     procedure insert_row ( p_row_id              in out   varchar2,
-                           p_rec                 in out   xxss_request_master%rowtype,
+                           p_rec                 in out   xxss_approval_list%rowtype,
                            p_err_code               out   varchar2,
                            p_err_msg                out   varchar2 ) is
 
@@ -28,34 +28,27 @@ as
       cursor c_res_rowid
       is
         select rowid
-        from   xxss_request_master
-        where  req_id = p_rec.req_id;
+        from   xxss_approval_list
+        where  appr_id = p_rec.appr_id;
 
     begin
       p_err_code     := '0';
       p_err_msg      := 'success';
       m_created_date := sysdate;
 
+      m_crnt_param   := 'appr_id';
+      if p_rec.appr_id is null then
+         raise reqd_value_missing;
+      end if;
+
       m_crnt_param   := 'req_id';
       if p_rec.req_id is null then
          raise reqd_value_missing;
       end if;
 
-      m_crnt_param   := 'req_name';
-      if p_rec.req_name is null then
+      m_crnt_param   := 'seq_num';
+      if p_rec.seq_num is null then
          raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'auto_num_yn';
-      if p_rec.auto_num_yn is null then
-         raise reqd_value_missing;
-      end if;
-      
-      if p_rec.auto_num_yn = 'Y' then
-         m_crnt_param   := 'next_number';
-         if p_rec.next_number is null then
-            raise reqd_value_missing;
-         end if;
       end if;
 
       m_crnt_param   := 'created_by';
@@ -80,9 +73,9 @@ as
 
       m_crnt_param   := '';
 
-      insert into xxss_request_master values p_rec;
+      insert into xxss_approval_list values p_rec;
 
-      commit;
+      -- commit;
 
       open c_res_rowid;
       fetch c_res_rowid into p_row_id;
@@ -104,7 +97,7 @@ as
     end insert_row;
 ----------------------------------------------------------------------------------------------
     procedure update_row ( p_row_id              in out   varchar2,
-                           p_rec                 in out   xxss_request_master%rowtype,
+                           p_rec                 in out   xxss_approval_list%rowtype,
                            p_err_code               out   varchar2,
                            p_err_msg                out   varchar2 ) is
 
@@ -119,26 +112,19 @@ as
       p_err_msg      := 'success';
       m_created_date := sysdate;
 
+      m_crnt_param   := 'appr_id';
+      if p_rec.appr_id is null then
+         raise reqd_value_missing;
+      end if;
+
       m_crnt_param   := 'req_id';
       if p_rec.req_id is null then
          raise reqd_value_missing;
       end if;
 
-      m_crnt_param   := 'req_name';
-      if p_rec.req_name is null then
+      m_crnt_param   := 'seq_num';
+      if p_rec.seq_num is null then
          raise reqd_value_missing;
-      end if;
-
-      m_crnt_param   := 'auto_num_yn';
-      if p_rec.auto_num_yn is null then
-         raise reqd_value_missing;
-      end if;
-
-     if p_rec.auto_num_yn = 'Y' then
-         m_crnt_param   := 'next_number';
-         if p_rec.next_number is null then
-            raise reqd_value_missing;
-         end if;
       end if;
 
       m_crnt_param   := 'created_by';
@@ -163,26 +149,24 @@ as
 
       m_crnt_param   := '';
 
-      update xxss_request_master
-         set req_id                = p_rec.req_id,
-             req_name              = p_rec.req_name,
-             req_description       = p_rec.req_description,
-             req_short_name        = p_rec.req_short_name,
-             auto_num_yn           = p_rec.auto_num_yn,
-             next_number           = p_rec.next_number,
-             wf_item_type          = p_rec.wf_item_type,
-             wf_process_name       = p_rec.wf_process_name,
-             attribute_category    = p_rec.attribute_category,
-             attribute1            = p_rec.attribute1,
-             attribute2            = p_rec.attribute2,
-			    attribute3            = p_rec.attribute3,
-			    attribute4            = p_rec.attribute4,
-			    attribute5            = p_rec.attribute5,
-             created_by            = p_rec.created_by,
-             creation_date         = p_rec.creation_date,
-             last_updated_by       = p_rec.last_updated_by,
-             last_update_date      = p_rec.last_update_date,
-             last_update_login     = p_rec.last_update_login
+      update xxss_approval_list
+         set appr_id             = p_rec.appr_id,
+             req_id              = p_rec.req_id,
+             seq_num             = p_rec.seq_num,
+             appr_type           = p_rec.appr_type,
+             sql_query           = p_rec.sql_query,
+             person_id           = p_rec.person_id,
+             attribute_category  = p_rec.attribute_category,
+             attribute1          = p_rec.attribute1,
+             attribute2          = p_rec.attribute2,
+	     attribute3          = p_rec.attribute3,
+	     attribute4          = p_rec.attribute4,
+	     attribute5          = p_rec.attribute5,
+             created_by          = p_rec.created_by,
+             creation_date       = p_rec.creation_date,
+             last_updated_by     = p_rec.last_updated_by,
+             last_update_date    = p_rec.last_update_date,
+             last_update_login   = p_rec.last_update_login
        where rowid = p_row_id;
 
       if (sql%rowcount = 0) then
@@ -209,7 +193,7 @@ as
       p_err_code := '0';
       p_err_msg := 'success';
 
-      delete from xxss_request_master
+      delete from xxss_approval_list
       where rowid = p_row_id;
 
       commit;
@@ -220,5 +204,5 @@ as
          return;
    end delete_row;
 
-end xxss_request_master_pkg;
+end xxss_approval_list_pkg;
 /
