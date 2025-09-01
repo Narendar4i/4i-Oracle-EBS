@@ -152,7 +152,6 @@ as
     lc_label_style   constant varchar2(200) := 'font-weight:bold; min-width:150px; margin:5px 10px 10px 0;';
     lc_input_style   constant varchar2(100) := 'margin-bottom:8px; width:150px;';
     lc_required_span constant varchar2(100) := '<span style="color:red;">*</span>';
-    lc_text_class    constant varchar2(100) := 'text_field apex-item-text';
     ln_text_idx      number   := 1;
     ln_select_idx    number   := 1;
     ln_date_idx      number   := 1;
@@ -313,7 +312,7 @@ as
                            p_value      => lc_value,
                            p_size       => 3,
                            p_maxlength  => 10,
-                           p_attributes => 'style="' || lc_input_style || '" class="' || lc_text_class || '" type="number" step="any"',
+                           p_attributes => 'style="' || lc_input_style || '" type="number" step="any"',
                            p_item_id    => lc_item_name
                          ) ||
                 '</div>';
