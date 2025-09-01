@@ -75,7 +75,7 @@ as
 
       insert into xxss_approval_list values p_rec;
 
-      -- commit;
+      commit;
 
       open c_res_rowid;
       fetch c_res_rowid into p_row_id;
@@ -159,9 +159,9 @@ as
              attribute_category  = p_rec.attribute_category,
              attribute1          = p_rec.attribute1,
              attribute2          = p_rec.attribute2,
-	     attribute3          = p_rec.attribute3,
-	     attribute4          = p_rec.attribute4,
-	     attribute5          = p_rec.attribute5,
+	          attribute3          = p_rec.attribute3,
+	          attribute4          = p_rec.attribute4,
+	          attribute5          = p_rec.attribute5,
              created_by          = p_rec.created_by,
              creation_date       = p_rec.creation_date,
              last_updated_by     = p_rec.last_updated_by,

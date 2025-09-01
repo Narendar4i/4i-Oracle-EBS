@@ -1,4 +1,3 @@
-
 create or replace package xxss_common_pkg
 as
 /***
@@ -20,5 +19,22 @@ as
     procedure get_current_user(p_user_id  in  number,
                                p_emp_name out varchar2,
                                p_emp_num  out varchar2);
+
+    function get_json_data(p_request_id in number,
+                           p_item_key   in varchar2)
+             return varchar2;
+
+    function get_no_of_days(p_start_date in date,
+                            p_end_date   in date)
+             return number;
+    
+    function number_validation (p_value in varchar2)
+             return number;
+    
+    procedure build_dynamic_content ( p_page_no      in number,
+                                      p_update_id    in number,
+                                      p_request_name in varchar2,
+                                      p_clob         out clob                               
+                                    );
 
 end xxss_common_pkg;

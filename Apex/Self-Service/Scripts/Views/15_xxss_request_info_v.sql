@@ -67,7 +67,7 @@ select
       xrd.rd_id,
       xrd.rd_seq_num,
       xrd.rd_item,
-      xrd.rd_datatype,
+      flv.meaning,
       xrd.rd_lookup_type,
       xrd.rd_mandatory_yn,
       xrd.rd_display_yn,
@@ -83,5 +83,9 @@ select
       xrm.last_update_date,
       xrm.last_update_login
 from  xxss_request_master xrm,
-      xxss_request_details xrd
-where xrm.req_id = xrd.req_id;
+      xxss_request_details xrd,
+      fnd_lookup_values    flv
+where xrm.req_id        = xrd.req_id
+and   xrd.rd_datatype   = flv.lookup_code
+and   flv.lookup_type   = 'XXSS_DATA_TYPE'
+order by req_id, rd_seq_num;
