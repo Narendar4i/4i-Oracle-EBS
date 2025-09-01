@@ -312,7 +312,7 @@ as
                            p_value      => lc_value,
                            p_size       => 3,
                            p_maxlength  => 10,
-                           p_attributes => 'style="' || lc_input_style || '" type="number" step="any"',
+                           p_attributes => 'style="' || lc_input_style || '" type="number" step="any" min="0"',
                            p_item_id    => lc_item_name
                          ) ||
                 '</div>';
